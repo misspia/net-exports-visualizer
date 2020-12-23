@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import App from './App'
+import { App } from './components/App';
 import { createGlobalStyle } from 'styled-components';
 import { Colors, Fonts } from './themes';
 
@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: ${Fonts.family};
-    font-weight: ${Fonts.weightRegular};
+    font-weight: ${Fonts.weight.regular};
     color: ${Colors.black};
     height: 100%;
     width: 100%;
@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-function AppEntry() {
+const Main = () => {
   return (
     <>
       <GlobalStyle />
@@ -34,4 +34,4 @@ function AppEntry() {
   )
 };
 
-ReactDOM.render(<AppEntry />, document.getElementById('app'));
+ReactDOM.render(<Main />, document.getElementById('app'));
