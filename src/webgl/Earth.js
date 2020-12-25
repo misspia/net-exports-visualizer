@@ -5,7 +5,7 @@ export default class Earth {
   constructor(context) {
     this.context = context; 
 
-    this.geometry = new THREE.SphereGeometry(2, 20, 20);
+    this.geometry = new THREE.SphereGeometry(2, 30, 30);
     
     const texture = new THREE.TextureLoader().load(Assets.textures.earth);
     texture.wrapS = THREE.RepeatWrapping;
