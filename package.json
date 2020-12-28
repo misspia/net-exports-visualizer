@@ -6,7 +6,6 @@
   "scripts": {
     "build": "webpack -p --config webpack.prod.js",
     "dev": "webpack-dev-server --colors --hot --inline --config webpack.dev.js"
-
   },
   "repository": {
     "type": "git",
@@ -49,6 +48,8 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "glsl-fractal-brownian-noise": "^1.1.0"
+    "core-js": "^3.8.1",
+    "glsl-fractal-brownian-noise": "^1.1.0",
+    "regenerator-runtime": "^0.13.7"
   }
 }
