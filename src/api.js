@@ -1,4 +1,5 @@
 import { ActionTypes } from './store';
+import mockdata from './data/mock.json';
 
 const BASE_URL = 'https://opensky-network.org/api';
 
@@ -34,8 +35,9 @@ export const updateAllFlights = async (dispatch) => {
   dispatch({ type: ActionTypes.UPDATE_ALL_FLIGHTS });
 
   try {
-    const response = await fetch(`${BASE_URL}/states/all`);
-    const body = await response.json();
+    // const response = await fetch(`${BASE_URL}/states/all`);
+    // const body = await response.json();
+    const body = mockdata;
 
     dispatch({
       type: ActionTypes.UPDATE_ALL_FLIGHTS_SUCCESS,

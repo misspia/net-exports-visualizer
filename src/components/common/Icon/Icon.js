@@ -2,11 +2,13 @@ import React from 'react';
 
 import * as S from './Icon.styles';
 
-export default function Icon({
+const Icon = ({
   name = '',
-}) {
+}) => {
   return (
     <S.Container>
     </S.Container>
   )
 }
+
+export default Icon;

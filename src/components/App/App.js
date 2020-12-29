@@ -16,13 +16,11 @@ export const App = ({
     API.updateAllFlights(dispatch);
   }, []);
 
-  useEffect(() => {
-    console.debug('[FLIGHTS]', state.flights);
-  }, [state.flights]);
-
   return (
     <S.Container>
-      <FlightTools />
+      <S.FlightToolsContainer>
+        <FlightTools />
+      </S.FlightToolsContainer>
       <Canvas />
     </S.Container>
   )
