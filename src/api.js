@@ -1,3 +1,5 @@
+import { ActionTypes } from './store';
+
 const BASE_URL = 'https://opensky-network.org/api';
 
 const stateVectorKeys = [
@@ -28,16 +30,26 @@ const mapState = (state) => (
   }, {})
 );
 
-export const getAllStates = async () => {
-  try {
-    const response = await fetch(`${BASE_URL}/states/all`); 
-    const body = await response.json();
-    return {
-      time: body.time,
-      states: body.states.map(state => (mapState(state))),
-    };
+export const updateAllFlights = async (dispatch) => {
+  dispatch({ type: ActionTypes.UPDATE_ALL_FLIGHTS });
 
-  } catch(error) {
-    throw error;
+  try {
+    const response = await fetch(`${BASE_URL}/states/all`);
+    const body = await response.json();
+
+    dispatch({
+      type: ActionTypes.UPDATE_ALL_FLIGHTS_SUCCESS,
+      payload: {
+        lastRetreivalTime: body.time,
+        flights: body.states.map(state => (mapState(state))),
+      },
+    })
+
+    return body;
+
+  } catch (error) {
+    dispatch({ type: ActionTypes.UPDATE_ALL_FLIGHTS_FAILURE });
+
+    return error;
   }
 } 

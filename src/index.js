@@ -6,6 +6,7 @@ import React from 'react';
 import { App } from './components/App';
 import { createGlobalStyle } from 'styled-components';
 import { Colors, Fonts } from './themes';
+import { StateProvider } from './store';
 
 const GlobalStyle = createGlobalStyle`
   @import url('${Fonts.src}');
@@ -30,10 +31,10 @@ const GlobalStyle = createGlobalStyle`
 
 const Main = () => {
   return (
-    <>
+    <StateProvider>
       <GlobalStyle />
       <App />
-    </>
+    </StateProvider>
   )
 };
 

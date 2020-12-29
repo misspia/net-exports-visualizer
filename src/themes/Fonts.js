@@ -1,7 +1,7 @@
 export default {
-    src: '',
-    family: '',
+    src: 'https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap',
+    family: `'Syne Mono', monospace`,
     weight: {
-      regular: 100,
+      regular: 400,
     },
 }

@@ -1,24 +1,53 @@
 import { ActionTypes } from './';
+
 export default function appReducer(state, action) {
   switch(action.type) {
-    case ActionTypes.GET_ALL_FLIGHTS: {
-      state.isLoading.flights = true;
-      state.errors.flights = null;
-      
-      return state;
+    case ActionTypes.UPDATE_ALL_FLIGHTS: {
+      return {
+        ...state,
+        isLoading: {
+          ...state.isLoading,
+          flights: true,
+        },
+        errors: {
+          ...state.errors,
+          flights: null,
+        }
+      };
     }
-    case ActionTypes.GET_ALL_FLIGHTS_SUCCESS: {
-      state.isLoading.flights = false;
-      state.errors.flights = 'Unable to retrieve flights';
-      
-      return state;
+    case ActionTypes.UPDATE_ALL_FLIGHTS_SUCCESS: {
+      const flights = action.payload.flights.reduce((countries, flight) => {
+        const { origin_country: country } = flight;
+        if (!countries[country]) {
+          countries[country] = [];
+        }
+        countries[country].push(flight);
+
+        return countries;
+      }, {});
+
+      return {
+        ...state,
+        isLoading: {
+          ...state.isLoading,
+          flights: false,
+        },
+        lastRetreivalTime: action.payload.lastRetreivalTime,
+        flights,
+      };
     }
-    case ActionTypes.GET_ALL_FLIGHTS_FAILURE: {
-      state.isLoading.flights = false;
-      state.flights = action.payload.flights;
-      state.lastRetreivalTime = action.payload.lastRetreivalTime;
-      
-      return state;
+    case ActionTypes.UPDATE_ALL_FLIGHTS_FAILURE: {
+      return {
+        ...state,
+        isLoading: {
+          ...state.isLoading,
+          flights: true,
+        },
+        errors: {
+          ...state.errors,
+          flights: 'Unable to retrieve flights',
+        }
+      };
     }
     default: {
       return state;

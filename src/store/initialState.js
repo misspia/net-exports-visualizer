@@ -8,5 +8,5 @@ export default {
     webgl: false,
   },
   lastRetreivalTime: 0,
-  flights: [],
+  flights: {},
 }
