@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { useAppContext } from '../../hooks';
+import { ActionTypes } from '../../store';
 import { Tag } from '../common';
 
 import * as S from './CountrySelector.styles';
@@ -8,14 +9,22 @@ import * as S from './CountrySelector.styles';
 export const CountrySelector = ({
 
 }) => {
-  const { state } = useAppContext();
-  const countries = Object.keys(state.flights).map((country) => ({
+  const { state, dispatch } = useAppContext();
+  const countries = Object.keys(state.flights)
+  .sort((a, b) => (
+    state.flights[b].length - state.flights[a].length 
+  ))
+  .map((country) => ({
     key: country,
-    label: `${country} (${country.length})`,
-  }))
+    label: `${country} (${state.flights[country].length})`,
+  }));
+  
 
   const onClick = (country) => {
-    console.debug('[Selected]: ', country);
+    dispatch({
+      type: ActionTypes.SET_COUNTRY_FILTER,
+      payload: country,
+    })
   }
 
   return (
@@ -25,7 +34,8 @@ export const CountrySelector = ({
           <Tag
             key={country.key}
             label={country.label}
-            onClick={onClick}
+            onClick={() => onClick(country.key)}
+            active={country.key === state.filters.country}
           />
         </S.TagContainer>
       ))}

@@ -10,7 +10,7 @@ import * as S from './App.styles';
 export const App = ({
 
 }) => {
-  const { state, dispatch } = useAppContext();
+  const { dispatch } = useAppContext();
 
   useEffect(() => {
     API.updateAllFlights(dispatch);

@@ -9,4 +9,8 @@ export default {
   },
   lastRetreivalTime: 0,
   flights: {},
+  filteredFlights: [],
+  filters: {
+    country: null,
+  }
 }

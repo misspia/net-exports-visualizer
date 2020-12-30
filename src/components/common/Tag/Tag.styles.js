@@ -1,5 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Colors } from '../../../themes';
+
+const activeStyles = css`
+  background-color: ${Colors.white};
+  color: ${Colors.black};
+`;
 
 export const Container = styled.div`
   border-radius: 0.2em;
@@ -9,8 +14,9 @@ export const Container = styled.div`
   cursor: pointer;
   transition: all 0.2s;
 
+  ${props => props.active ? activeStyles : ''}
+  
   &:hover {
-    background-color: ${Colors.white};
-    color: ${Colors.black};
+    ${activeStyles}
   }
 `;

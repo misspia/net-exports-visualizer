@@ -18,10 +18,11 @@ export const Canvas = ({
   }, []);
 
   useEffect(() => {
-    if(Object.keys(state.flights).length > 0) {
-      webgl.setNewFlights(state.flights.Canada);
-    } 
-  });
+    if(!state.filters.country) {
+      return;
+    }
+    webgl.setNewFlights(state.filteredFlights);
+  }, [state.filters.country]);
 
   return (
     <S.Canvas ref={canvasElement}/>

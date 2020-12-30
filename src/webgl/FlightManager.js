@@ -10,10 +10,8 @@ export default class FlightManager {
   }
 
   setNewFlights(flights) {
-    this.flights = [];
-
+    this.clearFlights();
     for(const flight of flights) {
-      console.debug(flight)
       const flightPoint = new FlightPoint();
       const { x, y, z } = this.latLonToVector3(
         flight.latitude,
@@ -26,6 +24,11 @@ export default class FlightManager {
       this.flights.push(flightPoint);
       this.group.add(flightPoint.mesh);
     }
+  }
+
+  clearFlights() {
+    this.flights = [];
+    this.group.remove(...this.group.children);
   }
 
   updateFlights(flights) {

@@ -49,6 +49,19 @@ export default function appReducer(state, action) {
         }
       };
     }
+    case ActionTypes.SET_COUNTRY_FILTER: {
+      const country = action.payload;
+      const filteredFlights = state.flights[country];
+
+      return {
+        ...state,
+        filteredFlights,
+        filters: {
+          ...state.filters,
+          country,
+        }
+      }
+    }
     default: {
       return state;
     }
