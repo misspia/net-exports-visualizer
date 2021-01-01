@@ -7,6 +7,11 @@ export default class FlightManager {
 
     this.flights = [];
     this.group = new THREE.Group();
+    this.bbox = new THREE.Box3();
+  }
+
+  get center() {
+    return this.bbox.setFromObject(this.group).getCenter();
   }
 
   setNewFlights(flights) {

@@ -9,6 +9,7 @@ export const Container = styled.div`
   width: 100%;
 
   color: ${Colors.white};
+  background-color: ${Colors.background};
 `;
 
 export const Title = styled.div`
@@ -30,8 +31,8 @@ const blink = keyframes`
 `;
 
 export const Blinker = styled.div`
-  margin-left: 0.25em;
-  width: 0.5em;
+  margin-left: 0.5em;
+  width: 0.6em;
   height: 1em;
   background-color: ${Colors.white};
 
