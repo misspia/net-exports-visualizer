@@ -22,8 +22,9 @@ export default class Visualizer extends SceneManager {
     const center = new THREE.Vector3();
     this.lookAt(center)
     this.scene.add(this.lights.directional);
-    this.scene.add(this.earth.mesh);
-    this.scene.add(this.flightManager.group);
+
+    this.earth.add(this.flightManager.group);
+    this.scene.add(this.earth.group);
   }
 
   setNewFlights(flights) {
@@ -37,6 +38,7 @@ export default class Visualizer extends SceneManager {
   render = () => {
     this.renderer.render(this.scene, this.camera);    
 
+    this.earth.update();
 
     requestAnimationFrame(this.render);
   }

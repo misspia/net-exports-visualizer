@@ -6,15 +6,27 @@ import * as API from '../../api';
 import { useAppContext } from '../../hooks';
 
 import * as S from './App.styles';
+import { ActionTypes } from '../../store';
 
 export const App = ({
 
 }) => {
-  const { dispatch } = useAppContext();
+  const { dispatch, state } = useAppContext();
 
   useEffect(() => {
     API.updateAllFlights(dispatch);
   }, []);
+
+  useEffect(() => {
+    if(state.isLoading.flights) {
+      return;
+    }
+
+    dispatch({
+      type: ActionTypes.SET_COUNTRY_FILTER,
+      payload: 'Canada'
+    })
+  }, [state.isLoading.flights])
 
   return (
     <S.Container>

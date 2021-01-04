@@ -4,8 +4,8 @@ export default {
     webgl: null,
   },
   isLoading: {
-    flights: false,
-    webgl: false,
+    flights: true,
+    webgl: true,
   },
   lastRetreivalTime: 0,
   flights: {},
