@@ -19,9 +19,13 @@ export default class WebGLApplication {
   }
 
   onLoadProgress(handler) {
-    DefaultLoadingManager.onProgress((url, loaded, total) => (
+    DefaultLoadingManager.onProgress = (url, loaded, total) => (
       handler(url, loaded, total)
-    ));
+    );
+  }
+
+  resize() {
+    this.app.resize();
   }
 
   render() {

@@ -15,14 +15,19 @@ export const Canvas = ({
   useEffect(() => {
     webgl.setup(canvasElement.current);
     webgl.render();
+    webgl.onLoadProgress((url, loaded, total) => {
+      console.debug('load', url, loaded, total)
+    });
+
+    window.addEventListener('resize', () => webgl.resize()); 
   }, []);
 
-  useEffect(() => {
-    if(!state.filters.country) {
-      return;
-    }
-    webgl.setNewFlights(state.filteredFlights);
-  }, [state.filters.country]);
+  // useEffect(() => {
+  //   if(!state.filters.country) {
+  //     return;
+  //   }
+  //   webgl.setNewFlights(state.filteredFlights);
+  // }, [state.filters.country]);
 
   return (
     <S.Canvas ref={canvasElement}/>

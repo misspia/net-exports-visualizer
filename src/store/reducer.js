@@ -62,6 +62,39 @@ export default function appReducer(state, action) {
         }
       }
     }
+    case ActionTypes.GET_TRADE_DATA: {
+      return {
+        ...state,
+        isLoading: {
+          ...state.isLoading,
+          trades: true,
+        },
+      }
+    }
+    case ActionTypes.GET_TRADE_DATA_SUCCESS: {
+      return {
+        ...state,
+        isLoading: {
+          ...state.isLoading,
+          trades: false,
+        },
+        trades: action.payload,
+      }
+    }
+    case ActionTypes.GET_TRADE_DATA_SUCCESS: {
+      return {
+        ...state,
+        isLoading: {
+          ...state.isLoading,
+          trades: false,
+        },
+        errors: {
+          ...state.errors,
+          trades: 'An error occured while trying to retrieve the trade data. Please try again',
+        }
+
+      }
+    }
     default: {
       return state;
     }
