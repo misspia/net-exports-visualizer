@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 
+import { AppLoader } from '../AppLoader';
 import { Canvas } from '../Canvas';
 import { FlightTools } from '../FlightTools';
+
 import * as API from '../../api';
 import { useAppContext } from '../../hooks';
 
@@ -18,7 +20,7 @@ export const App = ({
   }, []);
 
   useEffect(() => {
-    if(state.isLoading.flights) {
+    if (state.isLoading.flights) {
       return;
     }
 
@@ -29,11 +31,14 @@ export const App = ({
   }, [state.isLoading.flights])
 
   return (
-    <S.Container>
-      <S.FlightToolsContainer>
-        <FlightTools />
-      </S.FlightToolsContainer>
-      <Canvas />
-    </S.Container>
+    <>
+      <AppLoader />
+      <S.Container>
+        <S.FlightToolsContainer>
+          <FlightTools />
+        </S.FlightToolsContainer>
+        <Canvas />
+      </S.Container>
+    </>
   )
 }
