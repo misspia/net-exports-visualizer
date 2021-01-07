@@ -32,7 +32,7 @@ export default class SceneManager {
         this.renderer = new THREE.WebGLRenderer({
             canvas: this.canvas,
             antialias: true,
-            alpha: false,
+            alpha: true,
             // stencil: false,
         });
         this.setClearColor(0xffffff);
@@ -85,7 +85,7 @@ export default class SceneManager {
         this.canvas.style.pointerEvents = isDisabled ? 'none' : 'auto';
     }
 
-    setClearColor(hex) {
-        this.renderer.setClearColor(hex);
+    setClearColor(hex, alpha = 1) {
+        this.renderer.setClearColor(hex, alpha);
     }
 }

@@ -16,7 +16,7 @@ export default class Visualizer extends SceneManager {
   setup(canvas) {
     this.initializeScene(canvas);
 
-    this.setClearColor(0x000006);
+    this.setClearColor(0xbabec9, 0);
     this.camera.position.set(0, 0, 10);
 
     const center = new THREE.Vector3();

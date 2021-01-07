@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { AppLoader } from '../AppLoader';
 import { Canvas } from '../Canvas';
-import { FlightTools } from '../FlightTools';
+import { Filters } from '../Filters';
 
 import * as API from '../../api';
 import { useAppContext } from '../../hooks';
@@ -34,9 +34,9 @@ export const App = ({
     <>
       <AppLoader />
       <S.Container>
-        <S.FlightToolsContainer>
-          <FlightTools />
-        </S.FlightToolsContainer>
+        <S.FiltersContainer>
+          <Filters />
+        </S.FiltersContainer>
         <Canvas />
       </S.Container>
     </>

@@ -31,6 +31,7 @@ export default class Earth {
 
     const material = new THREE.MeshPhongMaterial({
       map: texture,
+      color: 0xffffff,
       shininess: 0.2,
     });
 
