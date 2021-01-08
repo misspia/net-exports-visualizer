@@ -3,7 +3,7 @@ import React from 'react';
 import * as S from './Button.styles';
 
 const Button =({
-  onClick = {},
+  onClick = () => {},
   children = {},
 }) => {
   return (

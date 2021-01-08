@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { AppLoader } from '../AppLoader';
 import { Canvas } from '../Canvas';
 import { Filters } from '../Filters';
+import { Legend } from '../Legend'; 
 
 import * as API from '../../api';
 import { useAppContext } from '../../hooks';
@@ -37,6 +38,9 @@ export const App = ({
         <S.FiltersContainer>
           <Filters />
         </S.FiltersContainer>
+        <S.LegendContainer>
+          <Legend />
+        </S.LegendContainer>
         <Canvas />
       </S.Container>
     </>

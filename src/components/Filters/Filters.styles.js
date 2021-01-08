@@ -7,28 +7,27 @@ export const Container = styled.div`
   align-items: center;
 
   padding: 1em;
-  width: 90%;
-  height: 10em;
-  border-radius: 0.5em;
+  width: 250px;
+  border-radius: ${Styles.borderRadius};
   background-color: ${Colors.white};
   box-shadow: ${Styles.shadow};
 
   box-sizing: border-box; 
 `;
 
-export const Row = styled.div`
-  display: flex;
-  margin-bottom: 3em;
-`;
-
 export const Field = styled.div`
-  padding: 0.5em;
+  padding: 0.5em 0;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
 
 `;
 
-export const Title = styled.div`
-  
+export const FieldLabel = styled.div`
+  margin-bottom: 0.5em;
+`;
+
+export const ButtonContainer = styled.div`
+  margin-top: 1em;
 `;

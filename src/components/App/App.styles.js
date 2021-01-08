@@ -10,11 +10,14 @@ export const Container = styled.div`
 
 export const FiltersContainer = styled.div`
   position: fixed;
-  top: 1em;
-  left: 0;
+  top: 0.5em;
+  left: 0.5em;
   z-index: 2;
-  width: 100%;
+`;
 
-  display: flex;
-  justify-content: center;
+export const LegendContainer = styled.div`
+  position: fixed;
+  bottom: 0.5em;
+  right: 0.5em;
+  z-index: 2;
 `;

@@ -20,4 +20,8 @@ export const Container = styled.div`
   &:hover {
     box-shadow: ${Styles.primaryShadowActive};
   }
+
+  &::focus, &:active {
+    opacity: 0.8;
+  }
 `;

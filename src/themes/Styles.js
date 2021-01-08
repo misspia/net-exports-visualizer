@@ -11,4 +11,6 @@ export default {
     0 0.25em 1em -0.1em blue
   `,
 
+  borderRadius: '0.5em',
+
 }
