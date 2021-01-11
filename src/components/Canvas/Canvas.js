@@ -16,7 +16,7 @@ export const Canvas = ({
     webgl.setup(canvasElement.current);
     webgl.render();
     webgl.onLoadProgress((url, loaded, total) => {
-      console.debug('load', url, loaded, total)
+      // console.debug('load', url, loaded, total)
     });
 
     window.addEventListener('resize', () => webgl.resize()); 

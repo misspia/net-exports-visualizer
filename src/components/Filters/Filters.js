@@ -1,55 +1,30 @@
 import React, { useState } from 'react';
 import { Button, Dropdown } from '../common';
+import { useAppContext } from '../../hooks';
+import * as API from '../../api';
 
+import { TradeCategoryOptions, ReporterOptions } from './options';
 import * as S from './Filters.styles';
 
-const TradeCategoryOptions = [
-  {
-    key: '0',
-    label: 'Wine',
-    value: '0',
-  },
-  {
-    key: '1',
-    label: 'Whisky',
-    value: '1',
-  },
-  {
-    key: '2',
-    label: 'Beer',
-    value: '2',
-  },
-  {
-    key: '3',
-    label: 'Rum',
-    value: '3',
-  },
-  {
-    key: '4',
-    label: 'Other Spirits',
-    value: '4',
-  },
-]
 
-const ReporterOptions = [
 
-];
 export const Filters = ({
 
 }) => {
-  const [reporter, setReporter] = useState('');
-  const [category, setCategory] = useState(0);
+  const { dispatch } = useAppContext();
+  const [reporter, setReporter] = useState(ReporterOptions[0].value);
+  const [category, setCategory] = useState(TradeCategoryOptions[0].value);
 
   const onReporterChange = (e) => (
-    setReporter(e.target.event)
+    setReporter(e.target.value)
   )
 
   const onCategoryChange = (e) => (
-    setCategory(e.target.event)
+    setCategory(e.target.value)
   )
 
   const onSubmit = () => {
-
+    API.updateTradeData(dispatch, { reporter, category });
   }
 
   return (
