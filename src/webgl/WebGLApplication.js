@@ -10,12 +10,8 @@ export default class WebGLApplication {
     this.app.setup(canvas);
   }
 
-  setNewFlights(flights) {
-    this.app.setNewFlights(flights);
-  }
-
-  updateFlights(flights) {
-    this.app.updateFlights(flights);
+  setNewTrades(trades) {
+    this.app.setNewTrades(trades);
   }
 
   onLoadProgress(handler) {

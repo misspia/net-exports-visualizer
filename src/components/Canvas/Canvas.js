@@ -22,14 +22,8 @@ export const Canvas = ({
     window.addEventListener('resize', () => webgl.resize()); 
   }, []);
 
-  // useEffect(() => {
-  //   if(!state.filters.country) {
-  //     return;
-  //   }
-  //   webgl.setNewFlights(state.filteredFlights);
-  // }, [state.filters.country]);
   useEffect(() => {
-    // webgl.setNewFlights(state.trades);
+    webgl.setNewTrades(state.trades);
     console.debug('[updated]', state.trades);
   }, [state.trades]);
 

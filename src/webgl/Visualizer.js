@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import SceneManager from './SceneManager';
 
-import FlightManager from './FlightManager';
+import TradeManager from './TradeManager';
 import Earth from './Earth';
 import Lights from './Lights';
 
@@ -10,7 +10,7 @@ export default class Visualizer extends SceneManager {
     super();
     this.earth = new Earth(this);
     this.lights = new Lights(this);
-    this.flightManager = new FlightManager(this);
+    this.tradeManager = new TradeManager(this);
   }
 
   setup(canvas) {
@@ -23,16 +23,13 @@ export default class Visualizer extends SceneManager {
     this.lookAt(center)
     this.scene.add(this.lights.directional);
 
-    this.earth.add(this.flightManager.group);
+    // this.scene.add(this.tradeManager.group);
+    this.earth.add(this.tradeManager.group);
     this.scene.add(this.earth.group);
   }
 
-  setNewFlights(flights) {
-    this.flightManager.setNewFlights(flights);
-  }
-
-  updateFlights(flights) {
-    this.flightManager.updateFlights(flights)
+  setNewTrades(trades) {
+    this.tradeManager.setNewTrades(trades);
   }
 
   render = () => {
