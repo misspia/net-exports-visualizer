@@ -13,7 +13,6 @@ export const App = ({
 
 }) => {
   const { state } = useAppContext();
-  console.debug(state.isLoading.trades)
 
   return (
     <>

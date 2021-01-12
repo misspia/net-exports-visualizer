@@ -1,7 +1,62 @@
 import { ActionTypes } from './';
 
+import isoCoordinates from '../data/isoCoordinates';
+
+
+const mapTradeData = (data) => {
+  const netTrades = data.reduce((trades, item) => {
+    const { pt3ISO, rgDesc, TradeValue, TradeQuantity, NetWeight } = item;
+    const value = rgDesc === "Export" ? TradeValue : -TradeValue; 
+
+    if(!trades[pt3ISO]) {
+      trades[pt3ISO] = {
+        value: 0,
+        quantity: 0,
+        weight: 0,
+      };
+    }
+    
+    trades[pt3ISO].value += value;
+    return trades;
+  },  {});
+
+  return data.reduce((trades, item) => {
+    const isoReporter = isoCoordinates[item.rt3ISO];
+    if(!isoReporter) {
+      console.debug(`[reporter] Unable to match iso code ${item.rt3ISO} (${item.rtTitle})`)
+      return trades;
+    }
+
+    const isoPartner = isoCoordinates[item.pt3ISO];
+    if(!isoPartner) {
+      console.debug(`[partner] Unable to match iso code ${item.pt3ISO} (${item.ptTitle})`);
+      return trades;
+    }
+
+    const total = netTrades[item.pt3ISO];
+    if(!total) {
+      console.debug(`[total] Unable to match iso code ${item.pt3ISO} (${item.ptTitle})`);
+      return trades;
+    }
+    trades.push({
+      reporter: {
+        name: item.rtTitle,
+        longitude: isoReporter.longitude,
+        latitude: isoReporter.latitude,
+      },
+      partner: {
+        name: item.ptTitle,
+        longitude: isoPartner.longitude,
+        latitude: isoPartner.latitude,
+      },
+      netTradeValue: total.value,
+    });
+    return trades;
+  }, [])
+}
+
 export default function appReducer(state, action) {
-  switch(action.type) {
+  switch (action.type) {
     case ActionTypes.UPDATE_TRADES: {
       return {
         ...state,
@@ -12,13 +67,14 @@ export default function appReducer(state, action) {
       }
     }
     case ActionTypes.UPDATE_TRADES_SUCCESS: {
+      const trades = mapTradeData(action.payload.trades);
       return {
         ...state,
         isLoading: {
           ...state.isLoading,
           trades: false,
         },
-        trades: action.payload,
+        trades,
       }
     }
     case ActionTypes.UPDATE_TRADES_FAILURE: {

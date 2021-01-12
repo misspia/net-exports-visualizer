@@ -289,10 +289,10 @@ export default [
     id: "231",
     text: "Ethiopia"
   },
-  {
-    id: "97",
-    text: "EU-28"
-  },
+  // {
+  //   id: "97",
+  //   text: "EU-28"
+  // },
   {
     id: "234",
     text: "Faeroe Isds"

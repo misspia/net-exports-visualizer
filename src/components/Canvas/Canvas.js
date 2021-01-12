@@ -28,6 +28,10 @@ export const Canvas = ({
   //   }
   //   webgl.setNewFlights(state.filteredFlights);
   // }, [state.filters.country]);
+  useEffect(() => {
+    // webgl.setNewFlights(state.trades);
+    console.debug('[updated]', state.trades);
+  }, [state.trades]);
 
   return (
     <S.Canvas ref={canvasElement}/>
