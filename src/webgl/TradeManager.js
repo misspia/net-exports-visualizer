@@ -11,10 +11,6 @@ export default class TradeManager {
     this.bbox = new THREE.Box3();
   }
 
-  // get center() {
-  //   return this.bbox.setFromObject(this.group).getCenter();
-  // }
-
   // setNewTrades(trades) {
   //   this.clearTrades();
   //   for(const trade of trades) {
@@ -35,20 +31,11 @@ export default class TradeManager {
   setNewTrades(trades) {
     this.clearTrades();
     for(const trade of trades) {
-      const start = this.latLonToVector3(
-        trade.reporter.latitude,
-        trade.reporter.longitude,
-        2,
-        0.15,
+      const tradeVector = new TradeVector(
+        trade.reporter,
+        trade.partner,
+        trade.netTradeValue > 0
       );
-      const end = this.latLonToVector3(
-        trade.partner.latitude,
-        trade.partner.longitude,
-        2,
-        0.15,
-      );
-
-      const tradeVector = new TradeVector(start, end);
       this.trades.push(tradeVector);
       this.group.add(tradeVector.mesh);
     }
