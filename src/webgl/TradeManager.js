@@ -32,8 +32,8 @@ export default class TradeManager {
     this.clearTrades();
     for(const trade of trades) {
       const tradeVector = new TradeVector(
-        trade.reporter,
-        trade.partner,
+        trade.exporter,
+        trade.importer,
         trade.netTradeValue > 0
       );
       this.trades.push(tradeVector);

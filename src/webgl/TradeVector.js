@@ -6,6 +6,7 @@ const GLOBE_RADIUS = 2;
 export const CURVE_MIN_ALTITUDE = 1;
 export const CURVE_MAX_ALTITUDE = 1.5;
 
+// https://mflux.tumblr.com/post/28367579774/armstradeviz
 // https://medium.com/@xiaoyangzhao/drawing-curves-on-webgl-globe-using-three-js-and-d3-draft-7e782ffd7ab
 export default class TradeVector {
   constructor(start, end, isExport) {

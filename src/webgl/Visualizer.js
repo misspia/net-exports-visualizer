@@ -22,6 +22,7 @@ export default class Visualizer extends SceneManager {
     const center = new THREE.Vector3();
     this.lookAt(center)
     this.scene.add(this.lights.directional);
+    this.scene.add(this.lights.ambient);
 
     // this.scene.add(this.tradeManager.group);
     this.earth.add(this.tradeManager.group);

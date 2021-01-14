@@ -26,29 +26,37 @@ const mapTradeData = (data) => {
       console.debug(`[reporter] Unable to match iso code ${item.rt3ISO} (${item.rtTitle})`)
       return trades;
     }
-
+    
     const isoPartner = isoCoordinates[item.pt3ISO];
     if(!isoPartner) {
       console.debug(`[partner] Unable to match iso code ${item.pt3ISO} (${item.ptTitle})`);
       return trades;
     }
+    
 
     const total = netTrades[item.pt3ISO];
     if(!total) {
       console.debug(`[total] Unable to match iso code ${item.pt3ISO} (${item.ptTitle})`);
       return trades;
     }
+
+    const reporter = {
+      name: item.rtTitle,
+      longitude: isoReporter.longitude,
+      latitude: isoReporter.latitude,
+    };
+    const partner = {
+      name: item.ptTitle,
+      longitude: isoPartner.longitude,
+      latitude: isoPartner.latitude,
+    };
+
+    const exporter = total.netTradeValue > 0 ? reporter : partner;
+    const importer = total.netTradeValue > 0 ? partner : reporter;
+
     trades.push({
-      reporter: {
-        name: item.rtTitle,
-        longitude: isoReporter.longitude,
-        latitude: isoReporter.latitude,
-      },
-      partner: {
-        name: item.ptTitle,
-        longitude: isoPartner.longitude,
-        latitude: isoPartner.latitude,
-      },
+      exporter,
+      importer,
       netTradeValue: total.value,
     });
     return trades;
