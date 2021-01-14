@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import TradePoint from './TradePoint';
 import TradeVector from './TradeVector';
 
 export default class TradeManager {
@@ -10,23 +9,6 @@ export default class TradeManager {
     this.group = new THREE.Group();
     this.bbox = new THREE.Box3();
   }
-
-  // setNewTrades(trades) {
-  //   this.clearTrades();
-  //   for(const trade of trades) {
-  //     const tradePoint = new TradePoint();
-  //     const { x, y, z } = this.latLonToVector3(
-  //       trade.partner.latitude,
-  //       trade.partner.longitude,
-  //       2,
-  //       0.15,
-  //     );
-  //     tradePoint.position.set(x, y, z);
-
-  //     this.trades.push(tradePoint);
-  //     this.group.add(tradePoint.mesh);
-  //   }
-  // }
 
   setNewTrades(trades) {
     this.clearTrades();
