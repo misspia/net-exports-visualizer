@@ -309,70 +309,70 @@ export default [
     id: "246",
     text: "Finland"
   },
-  {
-    id: "886",
-    text: "Fmr Arab Rep. of Yemen"
-  },
-  {
-    id: "278",
-    text: "Fmr Dem. Rep. of Germany"
-  },
-  {
-    id: "866",
-    text: "Fmr Dem. Rep. of Vietnam"
-  },
-  {
-    id: "720",
-    text: "Fmr Dem. Yemen"
-  },
-  {
-    id: "230",
-    text: "Fmr Ethiopia"
-  },
-  {
-    id: "280",
-    text: "Fmr Fed. Rep. of Germany"
-  },
-  {
-    id: "582",
-    text: "Fmr Pacific Isds"
-  },
-  {
-    id: "590",
-    text: "Fmr Panama, excl.Canal Zone"
-  },
-  {
-    id: "592",
-    text: "Fmr Panama-Canal-Zone"
-  },
-  {
-    id: "868",
-    text: "Fmr Rep. of Vietnam"
-  },
-  {
-    id: "717",
-    text: "Fmr Rhodesia Nyas"
-  },
-  {
-    id: "736",
-    text: "Fmr Sudan"
-  },
-  {
-    id: "835",
-    text: "Fmr Tanganyika"
-  },
-  {
-    id: "810",
-    text: "Fmr USSR"
-  },
-  {
-    id: "890",
-    text: "Fmr Yugoslavia"
-  },
-  {
-    id: "836",
-    text: "Fmr Zanzibar and Pemba Isd"
-  },
+  // {
+  //   id: "886",
+  //   text: "Fmr Arab Rep. of Yemen"
+  // },
+  // {
+  //   id: "278",
+  //   text: "Fmr Dem. Rep. of Germany"
+  // },
+  // {
+  //   id: "866",
+  //   text: "Fmr Dem. Rep. of Vietnam"
+  // },
+  // {
+  //   id: "720",
+  //   text: "Fmr Dem. Yemen"
+  // },
+  // {
+  //   id: "230",
+  //   text: "Fmr Ethiopia"
+  // },
+  // {
+  //   id: "280",
+  //   text: "Fmr Fed. Rep. of Germany"
+  // },
+  // {
+  //   id: "582",
+  //   text: "Fmr Pacific Isds"
+  // },
+  // {
+  //   id: "590",
+  //   text: "Fmr Panama, excl.Canal Zone"
+  // },
+  // {
+  //   id: "592",
+  //   text: "Fmr Panama-Canal-Zone"
+  // },
+  // {
+  //   id: "868",
+  //   text: "Fmr Rep. of Vietnam"
+  // },
+  // {
+  //   id: "717",
+  //   text: "Fmr Rhodesia Nyas"
+  // },
+  // {
+  //   id: "736",
+  //   text: "Fmr Sudan"
+  // },
+  // {
+  //   id: "835",
+  //   text: "Fmr Tanganyika"
+  // },
+  // {
+  //   id: "810",
+  //   text: "Fmr USSR"
+  // },
+  // {
+  //   id: "890",
+  //   text: "Fmr Yugoslavia"
+  // },
+  // {
+  //   id: "836",
+  //   text: "Fmr Zanzibar and Pemba Isd"
+  // },
   {
     id: "251",
     text: "France"
@@ -469,10 +469,10 @@ export default [
     id: "699",
     text: "India"
   },
-  {
-    id: "356",
-    text: "India, excl. Sikkim"
-  },
+  // {
+  //   id: "356",
+  //   text: "India, excl. Sikkim"
+  // },
   {
     id: "360",
     text: "Indonesia"
@@ -645,14 +645,14 @@ export default [
     id: "524",
     text: "Nepal"
   },
-  {
-    id: "530",
-    text: "Neth. Antilles"
-  },
-  {
-    id: "532",
-    text: "Neth. Antilles and Aruba"
-  },
+  // {
+  //   id: "530",
+  //   text: "Neth. Antilles"
+  // },
+  // {
+  //   id: "532",
+  //   text: "Neth. Antilles and Aruba"
+  // },
   {
     id: "528",
     text: "Netherlands"
@@ -989,10 +989,10 @@ export default [
     id: "842",
     text: "USA"
   },
-  {
-    id: "841",
-    text: "USA (before 1981)"
-  },
+  // {
+  //   id: "841",
+  //   text: "USA (before 1981)"
+  // },
   {
     id: "860",
     text: "Uzbekistan"
@@ -1025,8 +1025,8 @@ export default [
     id: "716",
     text: "Zimbabwe"
   },
-  {
-    id: "975",
-    text: "ASEAN"
-  }
+  // {
+  //   id: "975",
+  //   text: "ASEAN"
+  // }
 ]

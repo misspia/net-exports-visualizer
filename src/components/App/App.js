@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Loader } from '../Loader';
 import { Canvas } from '../Canvas';
@@ -6,13 +6,17 @@ import { Filters } from '../Filters';
 import { Legend } from '../Legend'; 
 
 import { useAppContext } from '../../hooks';
+import * as API from '../../api';
 
 import * as S from './App.styles';
 
 export const App = ({
 
 }) => {
-  const { state } = useAppContext();
+  const { state, dispatch } = useAppContext();
+  useEffect(() => {
+    API.updateTradeData(dispatch);
+  }, []);
 
   return (
     <>

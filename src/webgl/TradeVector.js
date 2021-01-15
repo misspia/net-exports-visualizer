@@ -1,5 +1,7 @@
 import * as THREE from 'three';
 import { geoInterpolate, coordinateToPosition, clamp } from '../utils';
+import fragmentShader from './shaders/path.frag'
+import vertexShader from './shaders/path.vert'
 
 const CURVE_SEGMENTS = 32;
 const GLOBE_RADIUS = 2;
@@ -9,14 +11,18 @@ export const CURVE_MAX_ALTITUDE = 1.5;
 // https://mflux.tumblr.com/post/28367579774/armstradeviz
 // https://medium.com/@xiaoyangzhao/drawing-curves-on-webgl-globe-using-three-js-and-d3-draft-7e782ffd7ab
 export default class TradeVector {
-  constructor(start, end, isExport) {
+  constructor(start, end, isExporter) {
 
     const spline = this.getSplineFromCoords(start, end);
     const geometry = this.createCurve(spline);
 
-    const material = new THREE.LineBasicMaterial({
-      color: isExport ? 0xff0000 : 0x0000ff,
-    });
+    const material = new THREE.RawShaderMaterial({
+      fragmentShader,
+      vertexShader,
+      uniforms: {
+        uIsExporter: { value: isExporter },
+      },
+    })
     this.mesh = new THREE.Line(geometry, material);
   }
 
@@ -55,7 +61,7 @@ export default class TradeVector {
       points[j++] = vertex.z;
     }
 
-    curveGeometry.addAttribute('position', new THREE.BufferAttribute(points, 3));
+    curveGeometry.setAttribute('position', new THREE.BufferAttribute(points, 3));
     curveGeometry.setDrawRange(0, CURVE_SEGMENTS);
 
     return curveGeometry;

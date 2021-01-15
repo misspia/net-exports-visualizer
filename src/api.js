@@ -1,5 +1,5 @@
 import { ActionTypes } from './store';
-import mockdata from './data/mock.json';
+import mockdata from './data/mock.js';
 
 const defaultTradeConfigs = {
   reporter: 826,
@@ -14,10 +14,10 @@ export const updateTradeData = async (dispatch, configs = defaultTradeConfigs) =
   dispatch({ type: ActionTypes.UPDATE_TRADES });
 
   try {
-    const url = getTradeUrl(configs);
-    const response = await fetch(url);
-    const body = await response.json();
-
+    // const url = getTradeUrl(configs);
+    // const response = await fetch(url);
+    // const body = await response.json();
+    const body = mockdata;
 
     dispatch({
       type: ActionTypes.UPDATE_TRADES_SUCCESS,
