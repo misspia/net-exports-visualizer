@@ -1,6 +1,7 @@
 import * as THREE from 'three';
-import { toRadians } from '../utils';
+import { GLOBE_RADIUS } from '../data/webgl';
 import { Assets } from '../themes';
+import { toRadians } from '../utils';
 
 const ROTATION_VELOCITY_Y = -0.005;
 
@@ -21,12 +22,17 @@ export default class Earth {
     this.group.add(this.globe);
   }
 
+  get rotation() {
+    return this.group.rotation;
+  }
+
   add(obj) {
     this.group.add(obj);
   }
 
+
   createGlobe() {
-    const geometry = new THREE.SphereGeometry(2, 50, 50);
+    const geometry = new THREE.SphereGeometry(GLOBE_RADIUS, 50, 50);
     
     const texture = new THREE.TextureLoader().load(Assets.textures.earth);
     texture.wrapS = THREE.RepeatWrapping;
@@ -41,6 +47,7 @@ export default class Earth {
     this.globe = new THREE.Mesh(geometry, material); 
     // this.globe.rotation.x = toRadians(5);
     // this.globe.rotation.z = toRadians(-23.4);
+    
   }
 
   update() {

@@ -23,6 +23,24 @@ export default class TradeManager {
     }
   }
 
+  // setNewTrades(trades) {
+  //   this.clearTrades();
+  //   const [trade] = trades;
+
+  //   if(!trade) {
+  //     return;
+  //   }
+
+  //   console.debug('[TRADE]', trade);
+  //   const tradeVector = new TradeVector(
+  //     trade.exporter,
+  //     trade.importer,
+  //     trade.netTradeValue > 0
+  //   );
+  //   this.trades.push(tradeVector);
+  //   this.group.add(tradeVector.mesh);
+  // }
+
   clearTrades() {
     this.trades = [];
     this.group.remove(...this.group.children);
@@ -37,5 +55,9 @@ export default class TradeManager {
       (radius + height) * Math.sin(phi),
       (radius + height) * Math.cos(phi) * Math.sin(theta),
     );
+  }
+
+  update() {
+    this.trades.forEach(trade => trade.update());
   }
 }

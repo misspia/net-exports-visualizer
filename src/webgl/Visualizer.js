@@ -4,6 +4,7 @@ import SceneManager from './SceneManager';
 import TradeManager from './TradeManager';
 import Earth from './Earth';
 import Lights from './Lights';
+import { toRadians } from '../utils';
 
 export default class Visualizer extends SceneManager {
   constructor() {
@@ -24,9 +25,11 @@ export default class Visualizer extends SceneManager {
     this.scene.add(this.lights.directional);
     this.scene.add(this.lights.ambient);
 
-    // this.scene.add(this.tradeManager.group);
     this.earth.add(this.tradeManager.group);
     this.scene.add(this.earth.group);
+
+    this.earth.rotation.y = toRadians(-90);
+    this.earth.rotation.x = toRadians(20);
   }
 
   setNewTrades(trades) {
@@ -37,6 +40,7 @@ export default class Visualizer extends SceneManager {
     this.renderer.render(this.scene, this.camera);    
 
     this.earth.update();
+    this.tradeManager.update();
 
     requestAnimationFrame(this.render);
   }
