@@ -1,7 +1,8 @@
 import * as THREE from 'three';
 import { GLOBE_RADIUS } from '../data/webgl';
 import { Assets } from '../themes';
-import { toRadians } from '../utils';
+import vertexShader from './shaders/earth.vert';
+import fragmentShader from './shaders/earth.frag';
 
 const ROTATION_VELOCITY_Y = -0.005;
 
@@ -14,8 +15,22 @@ const ROTATION_VELOCITY_Y = -0.005;
 export default class Earth {
   constructor(context) {
     this.context = context; 
-    this.globe = {};
-    this.createGlobe();
+
+    const geometry = new THREE.SphereGeometry(GLOBE_RADIUS, 50, 50);
+    
+    const texture = new THREE.TextureLoader().load(Assets.textures.earth);
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+
+    const material = new THREE.RawShaderMaterial({
+      vertexShader,
+      fragmentShader,
+      uniforms: {
+        texture: { type: 't', value: texture },
+      }
+    })
+
+    this.globe = new THREE.Mesh(geometry, material); 
     
 
     this.group = new THREE.Group();
@@ -32,19 +47,7 @@ export default class Earth {
 
 
   createGlobe() {
-    const geometry = new THREE.SphereGeometry(GLOBE_RADIUS, 50, 50);
     
-    const texture = new THREE.TextureLoader().load(Assets.textures.earth);
-    texture.wrapS = THREE.RepeatWrapping;
-    texture.wrapT = THREE.RepeatWrapping;
-
-    const material = new THREE.MeshPhongMaterial({
-      map: texture,
-      color: 0xffffff,
-      shininess: 0.2,
-    });
-
-    this.globe = new THREE.Mesh(geometry, material); 
     // this.globe.rotation.x = toRadians(5);
     // this.globe.rotation.z = toRadians(-23.4);
     

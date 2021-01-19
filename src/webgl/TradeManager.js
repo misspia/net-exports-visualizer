@@ -12,7 +12,16 @@ export default class TradeManager {
 
   setNewTrades(trades) {
     this.clearTrades();
+
+    const data = trades.map((trade) => ({
+      exporter: trade.exporter.name,
+      importer: trade.importer.name,
+      netExports: trade.netTradeValue,
+    }))
+    // console.table(data)
+
     for(const trade of trades) {
+      // console.debug(trade.exporter.name, trade.importer.name);
       const tradeVector = new TradeVector(
         trade.exporter,
         trade.importer,
@@ -22,24 +31,6 @@ export default class TradeManager {
       this.group.add(tradeVector.mesh);
     }
   }
-
-  // setNewTrades(trades) {
-  //   this.clearTrades();
-  //   const [trade] = trades;
-
-  //   if(!trade) {
-  //     return;
-  //   }
-
-  //   console.debug('[TRADE]', trade);
-  //   const tradeVector = new TradeVector(
-  //     trade.exporter,
-  //     trade.importer,
-  //     trade.netTradeValue > 0
-  //   );
-  //   this.trades.push(tradeVector);
-  //   this.group.add(tradeVector.mesh);
-  // }
 
   clearTrades() {
     this.trades = [];

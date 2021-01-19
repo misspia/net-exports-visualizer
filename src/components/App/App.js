@@ -14,9 +14,9 @@ export const App = ({
 
 }) => {
   const { state, dispatch } = useAppContext();
-  // useEffect(() => {
-  //   API.updateTradeData(dispatch);
-  // }, []);
+  useEffect(() => {
+    API.updateTradeData(dispatch);
+  }, []);
 
   return (
     <>

@@ -51,8 +51,8 @@ const mapTradeData = (data) => {
       latitude: isoPartner.latitude,
     };
 
-    const exporter = total.netTradeValue > 0 ? reporter : partner;
-    const importer = total.netTradeValue > 0 ? partner : reporter;
+    const exporter = total.value > 0 ? reporter : partner;
+    const importer = total.value > 0 ? partner : reporter;
 
     trades.push({
       exporter,
