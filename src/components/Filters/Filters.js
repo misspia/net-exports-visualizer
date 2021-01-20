@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Dropdown } from '../common';
+import { Button, Card, Dropdown } from '../common';
 import { useAppContext } from '../../hooks';
 import * as API from '../../api';
 
@@ -28,7 +28,7 @@ export const Filters = ({
   }
 
   return (
-    <S.Container>
+    <Card>
       <S.Field>
         <S.FieldLabel>
           Target country
@@ -55,6 +55,6 @@ export const Filters = ({
           Visualize
         </Button>
       </S.ButtonContainer>
-    </S.Container>
+    </Card>
   )
 }

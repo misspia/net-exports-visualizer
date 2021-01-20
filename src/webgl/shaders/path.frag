@@ -11,11 +11,11 @@ varying vec2 vUv;
 void main() {
   float alpha = 0.0;
   // blue
-  vec3 color = vec3(0.0, 0.0, 1.0);
+  vec3 color = vec3(0.13, 0.45, 1.0);
 
   // red
   if(uIsExporter) {
-    color = vec3(1.0, 0.0, 0.0);
+    color = vec3(0.97, 0.18, 1.0);
   }
   
   float dist = distance(vec3(0.0, 0.0, 0.0), vPosition);

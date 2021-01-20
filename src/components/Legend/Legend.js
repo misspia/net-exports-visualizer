@@ -1,17 +1,21 @@
 import React from 'react';
 
+import { Colors } from '../../themes';
+import { Card } from '../common';
+
 import * as S from './Legend.styles';
+
 
 const LegendItems = [
   {
     key: 'export',
-    label: 'export',
-    color: 'red',
+    label: 'Target is net exporter',
+    color: Colors.exports,
   },
   {
     key: 'import',
-    label: 'import',
-    color: 'blue',
+    label: 'Target is new importer',
+    color: Colors.imports,
   },
 ];
 
@@ -19,7 +23,7 @@ export const Legend = ({
 
 }) => {
   return (
-    <S.Container>
+    <Card>
       <S.Title>
         Legend
       </S.Title>
@@ -31,6 +35,6 @@ export const Legend = ({
           </S.ListItem>
         )))}
       </S.List>
-    </S.Container>
+    </Card>
   )
 }
