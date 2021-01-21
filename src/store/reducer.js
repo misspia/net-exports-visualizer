@@ -1,7 +1,24 @@
 import { ActionTypes } from './';
 
-import isoCoordinates from '../data/isoCoordinates';
+import { isoCoordinates, numericCodeCoordinates } from '../data/coordinates';
+import reportingAreas from '../data/reportingAreas';
 
+const getReporterMeta = (id) => {
+  const { longitude, latitude } =  numericCodeCoordinates[id];
+  const reporter = reportingAreas.find((country) => parseInt(country.id) === id);
+  return {
+    id,
+    longitude,
+    latitude,
+    name: reporter.text,
+  }
+}
+
+const getCategoryMeta = (id) => {
+  return {
+    
+  }
+}
 
 const mapTradeData = (data) => {
   const netTrades = data.reduce((trades, item) => {
@@ -65,6 +82,20 @@ const mapTradeData = (data) => {
 
 export default function appReducer(state, action) {
   switch (action.type) {
+    case ActionTypes.SET_FILTERS: {
+      const { payload } = action; 
+      const reporter = getReporterMeta(payload.reporterId);
+      const category = getCategoryMeta(payload.categoryId);
+
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          reporter,
+          category,
+        }
+      }
+    }
     case ActionTypes.UPDATE_TRADES: {
       return {
         ...state,

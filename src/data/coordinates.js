@@ -2051,9 +2051,18 @@ const meta = [
   }
 ];
 
-export default meta.reduce((countries, item) => {
+export const isoCoordinates = meta.reduce((countries, item) => {
   const iso = item['Alpha-3 code'];
   countries[iso] = {
+    longitude: item['Longitude (average)'],
+    latitude: item['Latitude (average)'],
+  } 
+  return countries;
+}, {});
+
+export const numericCodeCoordinates = meta.reduce((countries, item) => {
+  const numericCode = item['Numeric code'];
+  countries[numericCode] = {
     longitude: item['Longitude (average)'],
     latitude: item['Latitude (average)'],
   } 

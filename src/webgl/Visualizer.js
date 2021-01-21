@@ -33,6 +33,7 @@ export default class Visualizer extends SceneManager {
   }
 
   setNewTrades(trades) {
+    this.camera.transitionTo();
     this.tradeManager.setNewTrades(trades);
   }
 

@@ -2,17 +2,32 @@ import styled from 'styled-components';
 import { Colors } from '../../themes';
 
 export const Container = styled.div`
+  position: relative;
+  display: flex;
+  
   width: 100%;
   height: 100%;
 
   background: ${Colors.backgroundGradient};
 `;
 
-export const FiltersContainer = styled.div`
-  position: fixed;
-  top: 0.5em;
-  left: 0.5em;
-  z-index: 2;
+const MENU_WIDTH = '20em';
+
+export const CanvasContainer = styled.div`
+  flex: 1;
+  height: 100%;
+  width: calc(100% - ${MENU_WIDTH});
+`;
+
+
+export const MenuContainer = styled.div`
+  /* position: absolute;
+  top: 0em;
+  left: 0em; */
+  height: 100%;
+  width: ${MENU_WIDTH};  
+  z-index: 2
+  ;
 `;
 
 export const LegendContainer = styled.div`

@@ -12,6 +12,13 @@ const getTradeUrl = (configs = defaultTradeConfigs) => (
 
 export const updateTradeData = async (dispatch, configs = defaultTradeConfigs) => {
   dispatch({ type: ActionTypes.UPDATE_TRADES });
+  dispatch({
+    type: ActionTypes.SET_FILTERS,
+    payload: {
+      reporterId: configs.reporter,
+      categoryId: configs.category,
+    }
+  });
 
   try {
     // const url = getTradeUrl(configs);

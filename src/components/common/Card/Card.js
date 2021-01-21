@@ -7,12 +7,16 @@ const Card = ({
   direction = 'column',
   align = 'flex-start',
   justify = 'flex-start',
+  top = false,
+  bottom = false,
 }) => {
   return (
     <S.Container
       direction={direction}
       align={align}
       justify={justify}
+      top={top}
+      bottom={bottom}
     >
       {children}
     </S.Container>

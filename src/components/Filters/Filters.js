@@ -6,10 +6,9 @@ import * as API from '../../api';
 import { TradeCategoryOptions, ReporterOptions } from './options';
 import * as S from './Filters.styles';
 
-
-
 export const Filters = ({
-
+  top = false,
+  bottom = false,
 }) => {
   const { dispatch } = useAppContext();
   const [reporter, setReporter] = useState(ReporterOptions[0].value);
@@ -28,7 +27,10 @@ export const Filters = ({
   }
 
   return (
-    <Card>
+    <Card
+      top={top}
+      bottom={bottom}
+    >
       <S.Field>
         <S.FieldLabel>
           Target country

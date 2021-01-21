@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { Loader } from '../Loader';
 import { Canvas } from '../Canvas';
-import { Filters } from '../Filters';
+import { Menu } from '../Menu';
 import { Legend } from '../Legend'; 
 
 import { useAppContext } from '../../hooks';
@@ -25,13 +25,12 @@ export const App = ({
         <Loader message='Loading trades...'/>
       }
       <S.Container>
-        <S.FiltersContainer>
-          <Filters />
-        </S.FiltersContainer>
-        <S.LegendContainer>
-          <Legend />
-        </S.LegendContainer>
-        <Canvas />
+        <S.MenuContainer>
+          <Menu />
+        </S.MenuContainer>
+        <S.CanvasContainer>
+          <Canvas />
+        </S.CanvasContainer>
       </S.Container>
     </>
   )

@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { Colors, Styles } from '../../../themes';
 
 export const Container = styled.div`
+  width: 100%;
   display: flex;
-  padding: 0.5em 1em;
+  padding: 1em;
 
   flex-direction: ${props => props.direction};
   justify-content: ${props => props.justify};
@@ -13,5 +14,9 @@ export const Container = styled.div`
   border-radius: ${Styles.borderRadius};
   color: ${Colors.green100};
   /* background-color: ${Colors.black}; */
-  border: solid 2px ${Colors.green100};
+  border: solid 1px ${Colors.green100};
+  border-right: none;
+  border-left: none;
+  border-top: ${props => props.top  ? 'solid' : 'none'};
+  border-bottom: ${props => props.bottom  ? 'solid' : 'none'};
 `;

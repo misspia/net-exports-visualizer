@@ -7,6 +7,23 @@ export default {
     webgl: true,
     trades: false,
   },
-  lastRetreivalTime: 0,
+  /**
+   * trade element:
+   * name: string
+   * longitude: number
+   * latitude: number
+   */
   trades: [],
+  filters: {
+    reporter: {
+      id: null,
+      name: null,
+      longitude: null,
+      latitude: null,
+    },
+    category: {
+      id: null,
+      name: null,
+    },
+  }
 }

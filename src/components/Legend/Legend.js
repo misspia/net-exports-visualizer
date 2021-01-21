@@ -20,10 +20,14 @@ const LegendItems = [
 ];
 
 export const Legend = ({
-
+  top = false,
+  bottom = false,
 }) => {
   return (
-    <Card>
+    <Card
+      top={top}
+      bottom={bottom}
+    >
       <S.Title>
         Legend
       </S.Title>
