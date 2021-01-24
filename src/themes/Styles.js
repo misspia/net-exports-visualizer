@@ -6,9 +6,9 @@ export default {
     0 0.25em 1em -0.3em blue
   `,
   primaryShadowActive: `
-    0 0 0.2em -0.1em #ffffff, 
-    0 0 0.5em 0.1em #ffdada,
-    0 0.25em 1em -0.1em blue
+  0 0 0.2em -0.1em #ffffff, 
+  -0.1em 0 0.5em 0.2em #dc37ff, 
+  0.1em 0.25em 0.5em 0.2em blue
   `,
 
   borderRadius: '0.0em',

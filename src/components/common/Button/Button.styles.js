@@ -8,7 +8,7 @@ export const Container = styled.div`
   justify-content: center;
 
   height: 2.2em;
-  border-radius: 2em;
+  border-radius: 0em;
   background-color: ${Colors.green000};
   color: ${Colors.green200};
 

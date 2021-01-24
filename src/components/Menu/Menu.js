@@ -13,6 +13,9 @@ export const Menu = ({
 
   return (
     <S.Container>
+      <S.Title>
+        Net Exports Visualizer
+      </S.Title>
       <Filters top/>
       <Legend top/>
       <Results top bottom />

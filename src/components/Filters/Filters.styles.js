@@ -15,4 +15,8 @@ export const FieldLabel = styled.div`
 
 export const ButtonContainer = styled.div`
   margin-top: 1em;
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
 `;

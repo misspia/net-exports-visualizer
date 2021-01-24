@@ -10,4 +10,9 @@ export default {
     //   regular: 400,
     //   bold: 700,
     // },
+    size: {
+      body: '1em',
+      title: '1.2em',
+      subtitle: '1em',
+    },
 }

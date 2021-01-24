@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Colors, Styles } from '../../themes';
+import { Colors, Styles, Fonts } from '../../themes';
 
 export const Container = styled.div`
   position: relative;
@@ -17,4 +17,11 @@ export const Container = styled.div`
   box-shadow: ${Styles.shadow};
 
   box-sizing: border-box; 
+  overflow-y: scroll;
+`;
+
+export const Title = styled.div`
+  margin-bottom: 1em;
+  font-size: ${Fonts.size.title};
+  color: ${Colors.green100};
 `;
