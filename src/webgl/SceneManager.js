@@ -40,28 +40,18 @@ export default class SceneManager {
         // this.renderer.setPixelRatio(dpr);
 
         this.controls = new Controls(this);
-
-        this.resize();
     }
 
     unmount = () => {
-        return window.removeEventListener('resize', this.resize);
+
     }
 
-    resize = () => {
-        const { clientWidth, clientHeight } = document.documentElement;
+    resize = (width, height) => {
+        this.canvas.width = width;
+        this.canvas.height = height;
+        this.renderer.setSize(width, height);
 
-        this.canvas.width = clientWidth;
-        this.canvas.height = clientHeight;
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
-
-        this.updateProjectionMatrix();
-    }
-
-    updateProjectionMatrix() {
-        const { innerWidth, innerHeight } = window;
-
-        this.camera.aspect = innerWidth / innerHeight;
+        this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();
     }
 

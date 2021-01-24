@@ -10,7 +10,9 @@ export const Canvas = ({
 }) => {
   const { state } = useAppContext();
   const webgl = useMemo(() => new WebGLApplication(), []);
+  const containerElement = useRef(null);
   const canvasElement = useRef(null);
+
 
   useEffect(() => {
     webgl.setup(canvasElement.current);
@@ -19,7 +21,16 @@ export const Canvas = ({
       // console.debug('load', url, loaded, total)
     });
 
-    window.addEventListener('resize', () => webgl.resize()); 
+    const onResize = () => {
+      const { clientWidth, clientHeight } = containerElement.current;
+      webgl.resize(clientWidth, clientHeight);
+    }
+
+    onResize();
+
+    window.addEventListener('resize', onResize);
+    
+    return () => window.removeEventListener('resize', onResize)
   }, []);
 
   useEffect(() => {
@@ -28,6 +39,8 @@ export const Canvas = ({
   }, [state.trades]);
 
   return (
-    <S.Canvas ref={canvasElement}/>
+    <S.Container ref={containerElement}>
+      <S.Canvas ref={canvasElement}/>
+    </S.Container>
   )
 }

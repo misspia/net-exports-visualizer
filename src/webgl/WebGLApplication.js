@@ -20,8 +20,8 @@ export default class WebGLApplication {
     );
   }
 
-  resize() {
-    this.app.resize();
+  resize(width, height) {
+    this.app.resize(width, height);
   }
 
   render() {

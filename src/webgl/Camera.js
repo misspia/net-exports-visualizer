@@ -6,6 +6,6 @@ export default class Camera extends PerspectiveCamera {
   }
 
   transitionTo(position, lookat) {
-    console.debug('[GSAP]', gsap);
+
   }
 }
