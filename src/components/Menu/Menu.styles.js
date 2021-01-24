@@ -14,7 +14,6 @@ export const Container = styled.div`
 
   border-right: solid 1px ${Colors.green100};
   border-radius: ${Styles.borderRadius};
-  background-color: ${Colors.black};
   box-shadow: ${Styles.shadow};
 
   box-sizing: border-box; 

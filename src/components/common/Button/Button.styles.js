@@ -9,8 +9,8 @@ export const Container = styled.div`
 
   height: 2.2em;
   border-radius: 2em;
-  background-color: ${Colors.primary};
-  color: ${Colors.white};
+  background-color: ${Colors.green000};
+  color: ${Colors.green200};
 
   box-shadow: ${Styles.primaryShadow};
   cursor: pointer;

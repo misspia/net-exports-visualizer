@@ -12,7 +12,10 @@ export const Results = ({
       top={top}
       bottom={bottom}
     >
-      results
+      <S.Title>
+        Results
+      </S.Title>
+      sdfdf
     </Card>
   )
 }

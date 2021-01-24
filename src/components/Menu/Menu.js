@@ -15,7 +15,7 @@ export const Menu = ({
     <S.Container>
       <Filters top/>
       <Legend top/>
-      <Results bottom />
+      <Results top bottom />
     </S.Container>
   )
 }
