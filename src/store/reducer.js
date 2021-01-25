@@ -80,6 +80,29 @@ const mapTradeData = (data) => {
   }, [])
 }
 
+const getStats = (trades) => {
+  const numPartners = trades.length;
+  let numExportingPartners = 0;
+  let numImportingPartners = 0;
+
+  for(const trade of trades) {
+    // console.debug(trade.netTradeValue)
+    if(trade.netTradeValue < 0) {
+      numImportingPartners++;
+    }
+    if(trade.netTradeValue >= 0) {
+      numExportingPartners++;
+    }
+  }
+
+  console.debug(numImportingPartners, numExportingPartners)
+  return {
+    numPartners,
+    numExportingPartners,
+    numImportingPartners,
+  };
+}
+
 export default function appReducer(state, action) {
   switch (action.type) {
     case ActionTypes.SET_FILTERS: {
@@ -107,13 +130,18 @@ export default function appReducer(state, action) {
     }
     case ActionTypes.UPDATE_TRADES_SUCCESS: {
       const trades = mapTradeData(action.payload.trades);
+
       return {
         ...state,
+        trades,
         isLoading: {
           ...state.isLoading,
           trades: false,
         },
-        trades,
+        stats: {
+          ...state.stats,
+          ...getStats(trades),
+        }
       }
     }
     case ActionTypes.UPDATE_TRADES_FAILURE: {

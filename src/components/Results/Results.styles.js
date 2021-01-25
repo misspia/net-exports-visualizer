@@ -16,6 +16,20 @@ export const LoaderContainer = styled.div`
   align-items: center;
 `;
 
+export const Field = styled.div`
+  padding: 0.5em 0;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const FieldLabel = styled.div`
+  color: ${Colors.green000};
+`;
+
+export const FieldValue = styled.div`
+  color: ${Colors.green150};
+`;
+
 const createGradient = (deg) => `
 background: rgb(32,114,255);
 background: linear-gradient(${deg}deg, rgba(32,114,255,1) 0%, rgba(248,46,254,1) 100%);

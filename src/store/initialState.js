@@ -12,6 +12,7 @@ export default {
    * name: string
    * longitude: number
    * latitude: number
+   * tradeValue: number
    */
   trades: [],
   filters: {
@@ -25,5 +26,10 @@ export default {
       id: null,
       name: null,
     },
+  },
+  stats: {
+    numPartners: null,
+    numExportingPartners: null,
+    numImportingPartners: null,
   }
 }

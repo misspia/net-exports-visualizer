@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { useAppContext } from '../../hooks';
 import { Card } from '../common';
@@ -21,6 +21,41 @@ export const Results = ({
   bottom = false,
 }) => {
   const { state } = useAppContext();
+  const items = useMemo(() => {
+    if(state.isLoading.trades) {
+      return [];
+    }
+
+    return [
+      {
+        key: 0,
+        label: 'Reporting country',
+        value: state.filters.reporter.name,
+      },
+      {
+        key: 1,
+        label: 'Category',
+        value: state.filters.category.name,
+      },
+      {
+        key: 2,
+        label: '# of trade partners',
+        value: state.trades.length,
+      },
+      {
+        key: 3,
+        label: 'Exporting to',
+        value: `${state.stats.numExportingPartners} countries`,
+      },
+      {
+        key: 4,
+        label: 'Importing from',
+        value: `${state.stats.numImportingPartners} countries`,
+      },
+    ];
+
+  });
+  // }, [state.isLoading.trades]);
 
   return (
     <Card
@@ -30,7 +65,19 @@ export const Results = ({
       <S.Title>
         Results
       </S.Title>
-      <Loader />
+      {
+        items.map((item) => (
+          <S.Field key={item.key}>
+            <S.FieldLabel>
+              {item.label}
+            </S.FieldLabel>
+            <S.FieldValue>
+              {item.value}
+            </S.FieldValue>
+          </S.Field>
+        ))
+      }
+      {/* <Loader /> */}
     </Card>
   )
 }

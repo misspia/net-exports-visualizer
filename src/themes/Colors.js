@@ -16,6 +16,7 @@ export default {
   yellow: '#ddf700',
   green000: '#28fd01',
   green100: '#00be1a',
+  green150: '#028413',
   green200: '#01501c',
   
   exports: '#2072ff',
