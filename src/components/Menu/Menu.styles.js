@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { Colors, Styles, Fonts } from '../../themes';
 
+/**
+ * Scrollbar styling 
+ * https://www.digitalocean.com/community/tutorials/css-scrollbars
+ */
 export const Container = styled.div`
   position: relative;
   display: flex;
@@ -18,6 +22,23 @@ export const Container = styled.div`
 
   box-sizing: border-box; 
   overflow-y: scroll;
+
+  /* Chrome, Edge, and Safari */
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: ${Colors.green100};    /* color of the scroll thumb */
+    border-radius: 30px;       /* roundness of the scroll thumb */
+    border: 3px solid ${Colors.black};  /* creates padding around scroll thumb */
+  }
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: ${Colors.green100} ${Colors.black};
 `;
 
 export const Title = styled.div`
