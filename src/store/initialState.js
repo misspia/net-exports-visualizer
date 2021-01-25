@@ -31,5 +31,6 @@ export default {
     numPartners: null,
     numExportingPartners: null,
     numImportingPartners: null,
+    netTradeValue: null,
   }
 }

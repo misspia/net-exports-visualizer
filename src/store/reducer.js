@@ -6,11 +6,12 @@ import reportingAreas from '../data/reportingAreas';
 const getReporterMeta = (id) => {
   const { longitude, latitude } =  numericCodeCoordinates[id];
   const reporter = reportingAreas.find((country) => parseInt(country.id) === id);
+  console.debug(reporter)
   return {
     id,
     longitude,
     latitude,
-    name: reporter.text,
+    name: 'reporter.text',
   }
 }
 

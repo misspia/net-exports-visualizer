@@ -4,7 +4,7 @@ import { Colors } from '../../themes';
 // https://codersblock.com/blog/creating-glow-effects-with-css/
 
 export const Title = styled.div`
-
+  margin-bottom: 1em;
 `;
 
 export const LoaderContainer = styled.div`

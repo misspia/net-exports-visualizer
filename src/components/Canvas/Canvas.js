@@ -34,8 +34,7 @@ export const Canvas = ({
   }, []);
 
   useEffect(() => {
-    webgl.setNewTrades(state.trades);
-    // console.debug('[updated]', state.trades);
+    webgl.setNewTrades(state.filters.reporter, state.trades);
   }, [state.trades]);
 
   return (

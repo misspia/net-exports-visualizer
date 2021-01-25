@@ -21,6 +21,7 @@ export const Results = ({
   bottom = false,
 }) => {
   const { state } = useAppContext();
+  const { category, reporter } = state.filters;
   const items = useMemo(() => {
     if(state.isLoading.trades) {
       return [];
@@ -36,6 +37,11 @@ export const Results = ({
         key: 1,
         label: 'Category',
         value: state.filters.category.name,
+      },
+      {
+        key: 5,
+        label: `Net ${state.stats.netTradeValue >= 0 ? 'exports' : 'imports'}`,
+        value: state.stats.netTradeValue, 
       },
       {
         key: 2,
@@ -63,7 +69,7 @@ export const Results = ({
       bottom={bottom}
     >
       <S.Title>
-        Results
+        Results: {category.name} trades for {reporter.name} in 2019
       </S.Title>
       {
         items.map((item) => (

@@ -10,8 +10,8 @@ export default class WebGLApplication {
     this.app.setup(canvas);
   }
 
-  setNewTrades(trades) {
-    this.app.setNewTrades(trades);
+  setNewTrades(reporterCoords, trades) {
+    this.app.setNewTrades(reporterCoords, trades);
   }
 
   onLoadProgress(handler) {
