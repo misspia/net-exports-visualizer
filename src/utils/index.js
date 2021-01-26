@@ -84,3 +84,12 @@ export const coordinateToPosition = (lat, lon, radius, height = 0) => {
 //     radius * Math.sin(phi) * Math.sin(theta)
 //   );
 // }
+
+export const formatUSD = (num) => (
+  new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(num)
+)

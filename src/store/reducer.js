@@ -7,7 +7,6 @@ import { TradeCategoryOptions } from '../data/options';
 const getReporterMeta = (id) => {
   const { longitude, latitude } =  numericCodeCoordinates[id];
   const reporter = reportingAreas.find((country) => country.id === id);
-  console.debug(reporter)
   return {
     id,
     longitude,
@@ -27,17 +26,26 @@ const getCategoryMeta = (id) => {
 const mapTradeData = (data) => {
   const netTrades = data.reduce((trades, item) => {
     const { pt3ISO, rgDesc, TradeValue, TradeQuantity, NetWeight } = item;
-    const value = rgDesc === "Export" ? TradeValue : -TradeValue; 
+    const isExport = rgDesc === "Export"; 
+    const value =  isExport ? TradeValue : -TradeValue; 
 
     if(!trades[pt3ISO]) {
       trades[pt3ISO] = {
-        value: 0,
+        importValue: 0,
+        exportValue: 0,
+        netValue: 0,
         quantity: 0,
         weight: 0,
       };
     }
+
+    if(isExport) {
+      trades[pt3ISO].exportValue = value;
+    } else {
+      trades[pt3ISO].importValue = value;
+    }
     
-    trades[pt3ISO].value += value;
+    trades[pt3ISO].netValue += value;
     return trades;
   },  {});
 
@@ -72,13 +80,15 @@ const mapTradeData = (data) => {
       latitude: isoPartner.latitude,
     };
 
-    const exporter = total.value > 0 ? reporter : partner;
-    const importer = total.value > 0 ? partner : reporter;
+    const exporter = total.netValue > 0 ? reporter : partner;
+    const importer = total.netValue > 0 ? partner : reporter;
 
     trades.push({
       exporter,
       importer,
-      netTradeValue: total.value,
+      netTradeValue: total.netValue,
+      netExportValue: total.exportValue,
+      netImportValue: total.importValue,
     });
     return trades;
   }, [])
@@ -88,22 +98,30 @@ const getStats = (trades) => {
   const numPartners = trades.length;
   let numExportingPartners = 0;
   let numImportingPartners = 0;
+  let netExportValue = 0;
+  let netImportValue = 0;
+  let netTradeValue = 0;
 
   for(const trade of trades) {
-    // console.debug(trade.netTradeValue)
     if(trade.netTradeValue < 0) {
       numImportingPartners++;
     }
     if(trade.netTradeValue >= 0) {
       numExportingPartners++;
     }
+
+    netExportValue += trade.netExportValue;
+    netImportValue += -trade.netImportValue;
+    netTradeValue += trade.netTradeValue;
   }
 
-  console.debug(numImportingPartners, numExportingPartners)
   return {
     numPartners,
     numExportingPartners,
     numImportingPartners,
+    netTradeValue,
+    netExportValue,
+    netImportValue,
   };
 }
 
@@ -113,7 +131,6 @@ export default function appReducer(state, action) {
       const { payload } = action; 
       const reporter = getReporterMeta(payload.reporterId);
       const category = getCategoryMeta(payload.categoryId);
-      console.debug(payload, reporter, category);
 
       return {
         ...state,

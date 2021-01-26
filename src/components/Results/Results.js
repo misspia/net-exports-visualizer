@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 
+import { formatUSD } from '../../utils';
 import { useAppContext } from '../../hooks';
 import { Card } from '../common';
 import * as S from './Results.styles';
@@ -40,8 +41,18 @@ export const Results = ({
       },
       {
         key: 5,
-        label: `Net ${state.stats.netTradeValue >= 0 ? 'exports' : 'imports'}`,
-        value: state.stats.netTradeValue, 
+        label: 'Net trade value',
+        value: formatUSD(state.stats.netTradeValue), 
+      },
+      {
+        key: 6,
+        label: 'Net export value',
+        value: formatUSD(state.stats.netExportValue), 
+      },
+      {
+        key: 7,
+        label: 'Net import value',
+        value: formatUSD(state.stats.netImportValue), 
       },
       {
         key: 2,
