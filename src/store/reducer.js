@@ -2,22 +2,25 @@ import { ActionTypes } from './';
 
 import { isoCoordinates, numericCodeCoordinates } from '../data/coordinates';
 import reportingAreas from '../data/reportingAreas';
+import { TradeCategoryOptions } from '../data/options';
 
 const getReporterMeta = (id) => {
   const { longitude, latitude } =  numericCodeCoordinates[id];
-  const reporter = reportingAreas.find((country) => parseInt(country.id) === id);
+  const reporter = reportingAreas.find((country) => country.id === id);
   console.debug(reporter)
   return {
     id,
     longitude,
     latitude,
-    name: 'reporter.text',
+    name: reporter.text,
   }
 }
 
 const getCategoryMeta = (id) => {
+  const category = TradeCategoryOptions.find(category => category.value === id);
   return {
-    
+    id,
+    name: category.label,
   }
 }
 
@@ -110,6 +113,7 @@ export default function appReducer(state, action) {
       const { payload } = action; 
       const reporter = getReporterMeta(payload.reporterId);
       const category = getCategoryMeta(payload.categoryId);
+      console.debug(payload, reporter, category);
 
       return {
         ...state,

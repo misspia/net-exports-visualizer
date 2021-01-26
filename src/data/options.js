@@ -1,4 +1,4 @@
-import reportingAreas from '../../data/reportingAreas';
+import reportingAreas from './reportingAreas';
 
 export const TradeCategoryOptions = [
   {

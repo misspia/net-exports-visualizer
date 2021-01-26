@@ -3,7 +3,7 @@ import { Button, Card, Dropdown } from '../common';
 import { useAppContext } from '../../hooks';
 import * as API from '../../api';
 
-import { TradeCategoryOptions, ReporterOptions } from './options';
+import { TradeCategoryOptions, ReporterOptions } from '../../data/options';
 import * as S from './Filters.styles';
 
 export const Filters = ({
