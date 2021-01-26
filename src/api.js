@@ -21,10 +21,11 @@ export const updateTradeData = async (dispatch, configs = defaultTradeConfigs) =
   });
 
   try {
-    // const url = getTradeUrl(configs);
-    // const response = await fetch(url);
-    // const body = await response.json();
-    const body = mockdata;
+    const url = getTradeUrl(configs);
+    const response = await fetch(url);
+    const body = await response.json();
+    console.debug('[body]', body)
+    // const body = mockdata;
 
     dispatch({
       type: ActionTypes.UPDATE_TRADES_SUCCESS,

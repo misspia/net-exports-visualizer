@@ -5,7 +5,7 @@ import { Colors, Styles } from '../../../themes';
 export const Container = styled.div`
   width: 100%;
   display: flex;
-  padding: 1em;
+  padding: 2em 1em;
 
   flex-direction: ${props => props.direction};
   justify-content: ${props => props.justify};

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Colors } from '../../themes';
 
 export const Container = styled.div`
   position: fixed;
@@ -23,4 +24,9 @@ export const Bar = styled.div`
 
 export const Progress = styled.div`
 
+`;
+
+export const Message = styled.div`
+  font-size: 2em;
+  color: ${Colors.green000};
 `;

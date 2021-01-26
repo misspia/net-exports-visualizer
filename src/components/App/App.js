@@ -14,9 +14,9 @@ export const App = ({
 
 }) => {
   const { state, dispatch } = useAppContext();
-  useEffect(() => {
-    API.updateTradeData(dispatch, { reporter: '626', category: '2205'});
-  }, []);
+  // useEffect(() => {
+  //   API.updateTradeData(dispatch, { reporter: '626', category: '2205'});
+  // }, []);
 
   return (
     <>

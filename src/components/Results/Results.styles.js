@@ -1,10 +1,16 @@
 import styled, { keyframes } from 'styled-components'
 import { Colors } from '../../themes';
 
-// https://codersblock.com/blog/creating-glow-effects-with-css/
-
 export const Title = styled.div`
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
+`;
+
+export const Subtitle = styled.div`
+  margin-bottom: 1.5em;
+`;
+
+export const Message = styled.div`
+  
 `;
 
 export const LoaderContainer = styled.div`

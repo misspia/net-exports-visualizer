@@ -14,7 +14,7 @@ const LegendItems = [
   },
   {
     key: 'import',
-    label: 'Target is new importer',
+    label: 'Target is net importer',
     color: Colors.imports,
   },
 ];

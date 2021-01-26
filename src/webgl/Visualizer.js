@@ -27,9 +27,6 @@ export default class Visualizer extends SceneManager {
 
     this.earth.add(this.tradeManager.group);
     this.scene.add(this.earth.group);
-
-    this.earth.rotation.y = toRadians(-90);
-    this.earth.rotation.x = toRadians(20);
   }
 
   setNewTrades(reporterCoords, trades) {

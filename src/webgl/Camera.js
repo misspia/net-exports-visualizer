@@ -9,14 +9,15 @@ export default class Camera extends PerspectiveCamera {
 
   transitionTo(reporterCoords) {
     const { longitude, latitude } = reporterCoords;
-    const lookAt = coordinateToPosition(latitude, longitude, GLOBE_RADIUS, 0);
-    const position = coordinateToPosition(latitude, longitude, GLOBE_RADIUS, 5);
+    const lookAt = new Vector3(0,0,0)
+    const position = coordinateToPosition(latitude, longitude, GLOBE_RADIUS, 10);
 
     /**
      * https://stackoverflow.com/a/27961439
      */
-    const lookAtPosition = new Vector3(0, 0, -1);
-    lookAtPosition.applyQuaternion(this.quaternion);
+    const currentLookAtPosition = new Vector3(0, 0, -1);
+    currentLookAtPosition.applyQuaternion(this.quaternion);
+
 
     const tl = gsap.timeline();
 
@@ -24,14 +25,14 @@ export default class Camera extends PerspectiveCamera {
       x: position.x,
       y: position.y,
       z: position.z,
-    })
-    .to(lookAtPosition, 2, {
+    }, 0)
+    .to(currentLookAtPosition, 2, {
       x: lookAt.x,
       y: lookAt.y,
       z: lookAt.z,
       onUpdate: () => {
-        this.lookAt(lookAtPosition);
+        this.lookAt(currentLookAtPosition);
       }
-    })
+    }, 0)
   }
 }

@@ -6,13 +6,13 @@ import { Card } from '../common';
 import * as S from './Results.styles';
 
 
-const Loader = ({ 
+const Loader = ({
 
 }) => {
   return (
     <S.LoaderContainer>
-        <S.Loader>
-          Fetching results
+      <S.Loader>
+        Calculating
         </S.Loader>
     </S.LoaderContainer>
   )
@@ -24,8 +24,23 @@ export const Results = ({
   const { state } = useAppContext();
   const { category, reporter } = state.filters;
   const items = useMemo(() => {
-    if(state.isLoading.trades) {
-      return [];
+    if (state.trades.length === 0) {
+      return [
+        {
+          key: 0,
+          label: 'No trades to display',
+          value: '',
+        }
+      ];
+    }
+    if (state.isLoading.trades) {
+      return [
+        {
+          key: 0,
+          label: 'Processing results',
+          value: '',
+        }
+      ];
     }
 
     return [
@@ -42,17 +57,17 @@ export const Results = ({
       {
         key: 5,
         label: 'Net trade value',
-        value: formatUSD(state.stats.netTradeValue), 
+        value: `${formatUSD(state.stats.netTradeValue)}`,
       },
       {
         key: 6,
         label: 'Net export value',
-        value: formatUSD(state.stats.netExportValue), 
+        value: `${formatUSD(state.stats.netExportValue)}`,
       },
       {
         key: 7,
         label: 'Net import value',
-        value: formatUSD(state.stats.netImportValue), 
+        value: `${formatUSD(state.stats.netImportValue)}`,
       },
       {
         key: 2,
@@ -70,18 +85,27 @@ export const Results = ({
         value: `${state.stats.numImportingPartners} countries`,
       },
     ];
-
   });
   // }, [state.isLoading.trades]);
 
+
   return (
     <Card
+      direction='column'
       top={top}
       bottom={bottom}
     >
       <S.Title>
-        Results: {category.name} trades for {reporter.name} in 2019
+        Results
       </S.Title>
+      {
+        state.trades.length ?
+
+          <S.Subtitle>
+            {category.name} trades for {reporter.name} in 2019
+        </S.Subtitle> :
+          null
+      }
       {
         items.map((item) => (
           <S.Field key={item.key}>
