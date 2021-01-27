@@ -24,7 +24,6 @@ export const updateTradeData = async (dispatch, configs = defaultTradeConfigs) =
     const url = getTradeUrl(configs);
     const response = await fetch(url);
     const body = await response.json();
-    console.debug('[body]', body)
     // const body = mockdata;
 
     dispatch({

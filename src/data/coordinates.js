@@ -1925,7 +1925,7 @@ const meta = [
     "Country": "United States",
     "Alpha-2 code": "US",
     "Alpha-3 code": "USA",
-    "Numeric code": 840,
+    "Numeric code": 842,
     "Latitude (average)": 38,
     "Longitude (average)": -97
   },

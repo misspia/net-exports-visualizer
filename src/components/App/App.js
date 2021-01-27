@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { Loader } from '../Loader';
 import { Canvas } from '../Canvas';
 import { Menu } from '../Menu';
-import { Legend } from '../Legend';
 
 import { useAppContext } from '../../hooks';
 import * as API from '../../api';
@@ -21,9 +20,7 @@ export const App = ({
   return (
     <>
       <Loader
-        message='Loading trades...'
-        // active={state.isLoading.trades}
-        active={true}
+        active={state.isLoading.trades}
       />
       <S.Container>
         <S.MenuContainer>

@@ -30,8 +30,10 @@ export default class Visualizer extends SceneManager {
   }
 
   setNewTrades(reporterCoords, trades) {
-    this.camera.transitionTo(reporterCoords);
     this.tradeManager.setNewTrades(trades);
+    setTimeout(() => {
+      this.camera.transitionTo(reporterCoords);
+    }, 1000);
   }
 
   render = () => {

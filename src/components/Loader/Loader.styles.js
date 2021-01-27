@@ -48,6 +48,21 @@ export const Loader = styled.div`
 `;
 
 export const Message = styled.div`
+  display: flex;
   font-size: 2em;
   color: ${Colors.green000}; 
+`;
+
+const letterAnimation = keyframes`
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.2;
+  }
+`;
+export const Letter = styled.div`
+  padding: 0 0.25em;
+  animation: ${letterAnimation} 2s linear alternate infinite ${props => props.delay}s;
 `;
