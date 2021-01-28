@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Button, Card, Dropdown } from '../common';
 import { useAppContext } from '../../hooks';
 import * as API from '../../api';
@@ -11,7 +11,11 @@ export const Filters = ({
   bottom = false,
 }) => {
   const { dispatch } = useAppContext();
-  const [reporter, setReporter] = useState(ReporterOptions[0].value);
+  const defaultReporterIndex = useMemo(() => {
+    return ReporterOptions.findIndex(reporter => reporter.label === 'United Kingdom');
+  }, []);
+
+  const [reporter, setReporter] = useState(ReporterOptions[defaultReporterIndex].value);
   const [category, setCategory] = useState(TradeCategoryOptions[0].value);
 
   const onReporterChange = (e) => (
