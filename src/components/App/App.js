@@ -3,8 +3,9 @@ import React, { useEffect } from 'react';
 import { Loader } from '../Loader';
 import { Canvas } from '../Canvas';
 import { Menu } from '../Menu';
+import { NoMobileOverlay } from '../NoMobileOverlay';
 
-import { useAppContext } from '../../hooks';
+import { useAppContext, useMobileCheck } from '../../hooks';
 import * as API from '../../api';
 
 import * as S from './App.styles';
@@ -16,7 +17,13 @@ export const App = ({
   // useEffect(() => {
   //   API.updateTradeData(dispatch, { reporter: '626', category: '2205'});
   // }, []);
+  const isMobile = useMobileCheck();
 
+  if(isMobile) {
+    return (
+      <NoMobileOverlay />
+    )
+  }
   return (
     <>
       <Loader

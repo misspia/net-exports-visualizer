@@ -1,10 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export const useMobileCheck = (callback) => {
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const onResize = () => {
-      callback(checkIsMobile());
+      setIsMobile(checkIsMobile());
+      // callback(checkIsMobile());
     }
+
     window.addEventListener('resize', onResize);
     onResize();
 
@@ -12,6 +15,7 @@ export const useMobileCheck = (callback) => {
       window.removeEventListener('resize', onResize)
     );
   }, []);
+  return isMobile;
 }
 
 function checkIsMobile() {
@@ -19,7 +23,7 @@ function checkIsMobile() {
   if(isMobileDevice) {
     return true;
   }
-  const isMobileWidth = window.innerWidth < 600;
+  const isMobileWidth = window.innerWidth < 700;
   if(isMobileWidth) {
     return true;
   }
