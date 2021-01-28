@@ -2,9 +2,14 @@ import reportingAreas from './reportingAreas';
 
 export const TradeCategoryOptions = [
   {
-    key: '2204',
-    label: 'Wine',
-    value: '2204',
+    key: '220421,220422,220429',
+    label: 'Wine (still)',
+    value: '220421,220422,220429',
+  },
+  {
+    key: '220410',
+    label: 'Sparkling Wine',
+    value: '220410',
   },
   {
     key: '2205',
