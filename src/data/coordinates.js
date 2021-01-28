@@ -605,7 +605,7 @@ const meta = [
     "Country": "France",
     "Alpha-2 code": "FR",
     "Alpha-3 code": "FRA",
-    "Numeric code": 250,
+    "Numeric code": 251,
     "Latitude (average)": 46,
     "Longitude (average)": 2
   },
@@ -877,7 +877,7 @@ const meta = [
     "Country": "Italy",
     "Alpha-2 code": "IT",
     "Alpha-3 code": "ITA",
-    "Numeric code": 380,
+    "Numeric code": 381,
     "Latitude (average)": 42.8333,
     "Longitude (average)": 12.8333
   },
@@ -1357,7 +1357,7 @@ const meta = [
     "Country": "Norway",
     "Alpha-2 code": "NO",
     "Alpha-3 code": "NOR",
-    "Numeric code": 578,
+    "Numeric code": 579,
     "Latitude (average)": 62,
     "Longitude (average)": 10
   },
@@ -1717,7 +1717,7 @@ const meta = [
     "Country": "Sudan",
     "Alpha-2 code": "SD",
     "Alpha-3 code": "SDN",
-    "Numeric code": 736,
+    "Numeric code": 729,
     "Latitude (average)": 15,
     "Longitude (average)": 30
   },
@@ -1757,7 +1757,7 @@ const meta = [
     "Country": "Switzerland",
     "Alpha-2 code": "CH",
     "Alpha-3 code": "CHE",
-    "Numeric code": 756,
+    "Numeric code": 757,
     "Latitude (average)": 47,
     "Longitude (average)": 8
   },

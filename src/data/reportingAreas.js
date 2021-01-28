@@ -81,10 +81,10 @@ export default [
     id: "56",
     text: "Belgium"
   },
-  {
-    id: "58",
-    text: "Belgium-Luxembourg"
-  },
+  // {
+  //   id: "58",
+  //   text: "Belgium-Luxembourg"
+  // },
   {
     id: "84",
     text: "Belize"
@@ -105,10 +105,10 @@ export default [
     id: "68",
     text: "Bolivia (Plurinational State of)"
   },
-  {
-    id: "535",
-    text: "Bonaire"
-  },
+  // {
+  //   id: "535",
+  //   text: "Bonaire"
+  // },
   {
     id: "70",
     text: "Bosnia Herzegovina"
@@ -119,7 +119,7 @@ export default [
   },
   {
     id: "92",
-    text: "Br. Virgin Isds"
+    text: "British Virgin Isds"
   },
   {
     id: "76",
@@ -179,11 +179,11 @@ export default [
   },
   {
     id: "344",
-    text: "China, Hong Kong SAR"
+    text: "Hong Kong"
   },
   {
     id: "446",
-    text: "China, Macao SAR"
+    text: "Macao"
   },
   {
     id: "170",
@@ -217,10 +217,10 @@ export default [
     id: "192",
     text: "Cuba"
   },
-  {
-    id: "531",
-    text: "Curaçao"
-  },
+  // {
+  //   id: "531",
+  //   text: "Curaçao"
+  // },
   {
     id: "196",
     text: "Cyprus"
@@ -229,10 +229,10 @@ export default [
     id: "203",
     text: "Czechia"
   },
-  {
-    id: "200",
-    text: "Czechoslovakia"
-  },
+  // {
+  //   id: "200",
+  //   text: "Czechoslovakia"
+  // },
   {
     id: "408",
     text: "Dem. People's Rep. of Korea"
@@ -257,10 +257,10 @@ export default [
     id: "214",
     text: "Dominican Rep."
   },
-  {
-    id: "588",
-    text: "East and West Pakistan"
-  },
+  // {
+  //   id: "588",
+  //   text: "East and West Pakistan"
+  // },
   {
     id: "218",
     text: "Ecuador"
@@ -465,14 +465,15 @@ export default [
     id: "352",
     text: "Iceland"
   },
+  // {
+  //   id: "699",
+  //   text: "India"
+  // },
   {
-    id: "699",
+    id: "356",
+    // text: "India, excl. Sikkim"
     text: "India"
   },
-  // {
-  //   id: "356",
-  //   text: "India, excl. Sikkim"
-  // },
   {
     id: "360",
     text: "Indonesia"
@@ -685,10 +686,10 @@ export default [
     id: "512",
     text: "Oman"
   },
-  {
-    id: "490",
-    text: "Other Asia, nes"
-  },
+  // {
+  //   id: "490",
+  //   text: "Other Asia, nes"
+  // },
   {
     id: "586",
     text: "Pakistan"
@@ -709,10 +710,10 @@ export default [
     id: "600",
     text: "Paraguay"
   },
-  {
-    id: "459",
-    text: "Peninsula Malaysia"
-  },
+  // {
+  //   id: "459",
+  //   text: "Peninsula Malaysia"
+  // },
   {
     id: "604",
     text: "Peru"
@@ -757,18 +758,18 @@ export default [
     id: "646",
     text: "Rwanda"
   },
-  {
-    id: "647",
-    text: "Ryukyu Isd"
-  },
+  // {
+  //   id: "647",
+  //   text: "Ryukyu Isd"
+  // },
   {
     id: "461",
     text: "Sabah"
   },
-  {
-    id: "652",
-    text: "Saint Barthelemy"
-  },
+  // {
+  //   id: "652",
+  //   text: "Saint Barthelemy"
+  // },
   {
     id: "654",
     text: "Saint Helena"
@@ -777,18 +778,18 @@ export default [
     id: "659",
     text: "Saint Kitts and Nevis"
   },
-  {
-    id: "658",
-    text: "Saint Kitts, Nevis and Anguilla"
-  },
+  // {
+  //   id: "658",
+  //   text: "Saint Kitts, Nevis and Anguilla"
+  // },
   {
     id: "662",
     text: "Saint Lucia"
   },
-  {
-    id: "534",
-    text: "Saint Maarten"
-  },
+  // {
+  //   id: "534",
+  //   text: "Saint Maarten"
+  // },
   {
     id: "666",
     text: "Saint Pierre and Miquelon"
@@ -809,10 +810,10 @@ export default [
     id: "678",
     text: "Sao Tome and Principe"
   },
-  {
-    id: "457",
-    text: "Sarawak"
-  },
+  // {
+  //   id: "457",
+  //   text: "Sarawak"
+  // },
   {
     id: "682",
     text: "Saudi Arabia"
@@ -825,10 +826,10 @@ export default [
     id: "688",
     text: "Serbia"
   },
-  {
-    id: "891",
-    text: "Serbia and Montenegro"
-  },
+  // {
+  //   id: "891",
+  //   text: "Serbia and Montenegro"
+  // },
   {
     id: "690",
     text: "Seychelles"
@@ -849,10 +850,10 @@ export default [
     id: "705",
     text: "Slovenia"
   },
-  {
-    id: "711",
-    text: "So. African Customs Union"
-  },
+  // {
+  //   id: "711",
+  //   text: "So. African Customs Union"
+  // },
   {
     id: "90",
     text: "Solomon Isds"
