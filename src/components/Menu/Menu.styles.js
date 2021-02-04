@@ -41,8 +41,21 @@ export const Container = styled.div`
   scrollbar-color: ${Colors.green100} ${Colors.black};
 `;
 
-export const Title = styled.div`
+export const Header = styled.div`
   margin-bottom: 1em;
+`;
+export const Title = styled.div`
+  margin-bottom: 0.5em;
   font-size: ${Fonts.size.title};
   color: ${Colors.green100};
+`;
+
+export const Description = styled.div`
+  font-size: ${Fonts.size.aside};
+  color: ${Colors.green100};
+`;
+
+export const Anchor = styled.a`
+  color: ${Colors.blue};
+  text-decoration: none;
 `;

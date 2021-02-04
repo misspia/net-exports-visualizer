@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Colors } from '../../themes';
+import { Colors, Fonts } from '../../themes';
 
 export const Container = styled.div`
   position: relative;
@@ -35,4 +35,13 @@ export const LegendContainer = styled.div`
   bottom: 0.5em;
   right: 0.5em;
   z-index: 2;
+`;
+
+export const Info = styled.div`
+  z-index: 2;
+  position: absolute;
+  top: 1em;
+  left: 50%;
+  font-size: ${Fonts.size.aside};
+  color: ${Colors.green100};
 `;

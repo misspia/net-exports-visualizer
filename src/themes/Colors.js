@@ -14,6 +14,7 @@ export default {
   shadow: 'rgba(0, 0, 0, 0.26)',
 
   yellow: '#ddf700',
+  blue: '#0080cb',
   green000: '#28fd01',
   green100: '#00be1a',
   green150: '#028413',

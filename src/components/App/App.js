@@ -34,6 +34,9 @@ export const App = ({
           <Menu />
         </S.MenuContainer>
         <S.CanvasContainer>
+          <S.Info>
+            scroll to zoom, drag to rotate the globe
+          </S.Info>
           <Canvas />
         </S.CanvasContainer>
       </S.Container>

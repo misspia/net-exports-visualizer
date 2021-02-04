@@ -46,7 +46,7 @@ export const Results = ({
     return [
       {
         key: 0,
-        label: 'Reporting country',
+        label: 'Reporting region',
         value: state.filters.reporter.name,
       },
       {
@@ -77,12 +77,12 @@ export const Results = ({
       {
         key: 3,
         label: 'Exporting to',
-        value: `${state.stats.numExportingPartners} countries`,
+        value: `${state.stats.numExportingPartners} regions`,
       },
       {
         key: 4,
         label: 'Importing from',
-        value: `${state.stats.numImportingPartners} countries`,
+        value: `${state.stats.numImportingPartners} regions`,
       },
     ];
   });

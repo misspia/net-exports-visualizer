@@ -14,5 +14,6 @@ export default {
       body: '1em',
       title: '1.2em',
       subtitle: '1em',
+      aside: '0.8em',
     },
 }
